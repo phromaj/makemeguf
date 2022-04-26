@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1R8-6a-xYZ">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +11,176 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MakeMeGuf" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYT-Fa-ylz">
+                                <rect key="frame" x="100" y="730" width="228" height="47"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Trouve moi l'guf" buttonSize="large">
+                                    <color key="baseBackgroundColor" red="0.015686274509803921" green="0.8901960784313725" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="ecze:" destination="09R-PG-Hf2" eventType="touchUpInside" id="j6y-af-AZV"/>
+                                    <action selector="trouveMoiLeGufButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="grV-hD-jZb"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guf" translatesAutoresizingMaskIntoConstraints="NO" id="TZh-Y1-4qR">
+                                <rect key="frame" x="14" y="290" width="400" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="BMS-VK-3dc"/>
+                                    <constraint firstAttribute="width" constant="400" id="CAb-uT-xr9"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZ2-rc-Hjp">
+                                <rect key="frame" x="100" y="203" width="228" height="47"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Fais moi l'guf" buttonSize="large">
+                                    <color key="baseBackgroundColor" red="0.56470588235294117" green="0.18431372549019609" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="faisMoiLeGufButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Jt-z3-CCb"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.98431372549019602" green="0.98039215686274506" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CYT-Fa-ylz" secondAttribute="bottom" constant="115" id="AUS-UK-xPn"/>
+                            <constraint firstItem="AZ2-rc-Hjp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="ES0-ea-yGm"/>
+                            <constraint firstItem="TZh-Y1-4qR" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="N1s-NU-vRh"/>
+                            <constraint firstItem="TZh-Y1-4qR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ph1-73-nXM"/>
+                            <constraint firstItem="AZ2-rc-Hjp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="cqb-Dq-ygt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CYT-Fa-ylz" secondAttribute="trailing" constant="100" id="dOk-x0-vRI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AZ2-rc-Hjp" secondAttribute="trailing" constant="100" id="fUk-k4-Zs6"/>
+                            <constraint firstItem="CYT-Fa-ylz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="iL3-AK-gZk"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Y5W-r8-CYl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="09R-PG-Hf2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
+            <point key="canvasLocation" x="1020.5607476635513" y="123.75809935205184"/>
+        </scene>
+        <!--Fais Moi Le Guf View Controller-->
+        <scene sceneID="lfH-wH-LzZ">
+            <objects>
+                <viewController storyboardIdentifier="faisMoiLeGuf" id="afY-wY-61w" customClass="FaisMoiLeGufViewController" customModule="MakeMeGuf" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OeY-a5-lK8">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bHi-zb-sXu">
+                                <rect key="frame" x="100" y="164" width="228" height="157"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9S-XE-zPF">
+                                <rect key="frame" x="100" y="451" width="228" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoU-zl-JgK">
+                                <rect key="frame" x="133" y="520" width="163" height="47"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Je guf ça" buttonSize="large">
+                                    <color key="baseBackgroundColor" red="0.56470588239999997" green="0.1843137255" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="faisMoiLeGufButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RUW-pW-6tw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="amb-56-9Mr"/>
+                        <color key="backgroundColor" red="0.98431372549999996" green="0.98039215690000003" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="hoU-zl-JgK" firstAttribute="top" secondItem="B9S-XE-zPF" secondAttribute="bottom" constant="35" id="5kZ-ql-JzZ"/>
+                            <constraint firstItem="B9S-XE-zPF" firstAttribute="centerY" secondItem="amb-56-9Mr" secondAttribute="centerY" id="Da0-Ht-ZFE"/>
+                            <constraint firstItem="amb-56-9Mr" firstAttribute="bottom" secondItem="bHi-zb-sXu" secondAttribute="bottom" constant="571" id="KFr-GT-Fse"/>
+                            <constraint firstItem="hoU-zl-JgK" firstAttribute="leading" secondItem="amb-56-9Mr" secondAttribute="leading" constant="133" id="Mz6-q7-Ma9"/>
+                            <constraint firstItem="B9S-XE-zPF" firstAttribute="leading" secondItem="amb-56-9Mr" secondAttribute="leading" constant="100" id="TnN-LZ-ITZ"/>
+                            <constraint firstItem="amb-56-9Mr" firstAttribute="trailing" secondItem="hoU-zl-JgK" secondAttribute="trailing" constant="132" id="eP8-Dc-EXQ"/>
+                            <constraint firstItem="bHi-zb-sXu" firstAttribute="leading" secondItem="amb-56-9Mr" secondAttribute="leading" constant="100" id="gtL-SK-H7a"/>
+                            <constraint firstItem="bHi-zb-sXu" firstAttribute="top" secondItem="amb-56-9Mr" secondAttribute="top" constant="120" id="kdG-62-X5w"/>
+                            <constraint firstItem="amb-56-9Mr" firstAttribute="trailing" secondItem="bHi-zb-sXu" secondAttribute="trailing" constant="100" id="rND-Eh-GRo"/>
+                            <constraint firstItem="amb-56-9Mr" firstAttribute="trailing" secondItem="B9S-XE-zPF" secondAttribute="trailing" constant="100" id="zZ3-I4-tdz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ow3-5c-Gci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1830.8411214953269" y="123.75809935205184"/>
+        </scene>
+        <!--Trouve Moi Le Guf View Controller-->
+        <scene sceneID="G3T-pg-HFb">
+            <objects>
+                <viewController storyboardIdentifier="trouveMoiLeGuf" id="D30-MG-0KF" customClass="TrouveMoiLeGufViewController" customModule="MakeMeGuf" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rDG-uH-0p6">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phrase exemple pour trouver le gif " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFc-nm-IUn">
+                                <rect key="frame" x="50" y="234" width="328" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Mo-HY-shB">
+                                <rect key="frame" x="100" y="451" width="228" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrj-qH-r8b">
+                                <rect key="frame" x="133" y="520" width="163" height="47"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Je guf ça" buttonSize="large">
+                                    <color key="baseBackgroundColor" red="0.015686274510000001" green="0.89019607840000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="faisMoiLeGufButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jd9-f8-2GV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ymb-iU-jsx"/>
+                        <color key="backgroundColor" red="0.98431372549999996" green="0.98039215690000003" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="BFc-nm-IUn" firstAttribute="leading" secondItem="ymb-iU-jsx" secondAttribute="leading" constant="50" id="Gd4-r0-Iut"/>
+                            <constraint firstItem="Rrj-qH-r8b" firstAttribute="leading" secondItem="ymb-iU-jsx" secondAttribute="leading" constant="133" id="WIf-N1-vNd"/>
+                            <constraint firstItem="3Mo-HY-shB" firstAttribute="centerY" secondItem="ymb-iU-jsx" secondAttribute="centerY" id="Xjl-AT-ta1"/>
+                            <constraint firstItem="BFc-nm-IUn" firstAttribute="top" secondItem="ymb-iU-jsx" secondAttribute="top" constant="190" id="hrn-9j-evN"/>
+                            <constraint firstItem="3Mo-HY-shB" firstAttribute="leading" secondItem="ymb-iU-jsx" secondAttribute="leading" constant="100" id="pjh-7b-ou2"/>
+                            <constraint firstItem="ymb-iU-jsx" firstAttribute="trailing" secondItem="BFc-nm-IUn" secondAttribute="trailing" constant="50" id="rHq-eT-ZBm"/>
+                            <constraint firstItem="ymb-iU-jsx" firstAttribute="trailing" secondItem="3Mo-HY-shB" secondAttribute="trailing" constant="100" id="vyB-Cm-qRL"/>
+                            <constraint firstItem="ymb-iU-jsx" firstAttribute="trailing" secondItem="Rrj-qH-r8b" secondAttribute="trailing" constant="132" id="xpY-VZ-Ioc"/>
+                            <constraint firstItem="Rrj-qH-r8b" firstAttribute="top" secondItem="3Mo-HY-shB" secondAttribute="bottom" constant="35" id="zs5-UG-3iw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ygg-ud-4YV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2664.9532710280373" y="123.75809935205184"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iQL-8p-dAK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1R8-6a-xYZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KHU-2O-fx0">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="nUi-tg-HCZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DVW-Ls-aex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="120.5607476635514" y="123.75809935205184"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="guf" width="1080" height="1080"/>
+    </resources>
 </document>

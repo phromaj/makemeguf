@@ -12,9 +12,25 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
     }
 
-
+    @IBAction func faisMoiLeGufButton(_ sender: Any) {
+        
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "faisMoiLeGuf") as? FaisMoiLeGufViewController {
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
+    
+    @IBAction func trouveMoiLeGufButton(_ sender: Any) {
+        
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "trouveMoiLeGuf") as? TrouveMoiLeGufViewController {
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
 }
 
