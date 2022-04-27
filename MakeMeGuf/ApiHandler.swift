@@ -10,69 +10,61 @@ import Foundation
 
 let apikey = "I28HR6RDU71N"
 
-var Results: [Result] = []
-
-
 /**
  Execute web request to retrieve the top GIFs returned(in batches of 8) for the given search term.
  */
-func requestData(searchTerm: String)
+func requestData(searchTerm: String, completion: @escaping (Tenor) -> Void)
 {
-  // Define the results upper limit
-  let limit = 8
-
-  // make initial search request for the first 8 items
-  let searchRequest = URLRequest(url: URL(string: String(format: "https://g.tenor.com/v1/search?q=%@&key=%@&limit=%d",
+    // Define the results upper limit
+    let limit = 8
+    
+    let searchRequest: URLRequest
+    
+    if searchTerm != "random"{
+        searchRequest = URLRequest(url: URL(string: String(format: "https://g.tenor.com/v1/search?q=%@&key=%@&limit=%d",
                                                            searchTerm,
                                                            apikey,
                                                            limit))!)
-
-  makeWebRequest(urlRequest: searchRequest, callback: tenorSearchHandler)
-
-  // Data will be loaded by each request's callback
-}
-
-/**
- Async URL requesting function.
- */
-func makeWebRequest(urlRequest: URLRequest, callback: @escaping ([String:AnyObject]) -> ())
-{
-  // Make the async request and pass the resulting json object to the callback
-  let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-    do {
-        if (try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]) != nil {
-        // Push the results to our callback
-        parse(json: data!)
-        //callback(jsonResult)
-      }
-    } catch let error as NSError {
-      print(error.localizedDescription)
+    } else {
+        searchRequest = URLRequest(url: URL(string: String(format: "https://g.tenor.com/v1/random?key=%@&limit=%d",
+                                                           apikey,
+                                                           limit))!)
     }
-  }
-  task.resume()
+    
+    // Make the async request and pass the resulting json object to the callback
+    let task = URLSession.shared.dataTask(with: searchRequest, completionHandler:  { (data, response, error) in
+        do {
+            if (try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]) != nil {
+                // Push the results to our callback
+                
+                let tenor =  parse(json: data!)
+                
+                completion(tenor)
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    })
+    task.resume()
+    
+    // make initial search request for the first 8 items
+    
+    
+    
+    
+    // Data will be loaded by each request's callback
 }
 
-/**
- Web response handler for search requests.
- */
-func tenorSearchHandler(response: [String:AnyObject])
-{
-  // Parse the json response
-  let responseGifs = response["results"]!
-
-  // Load the GIFs into your view
-  print("Result GIFS: \(responseGifs)")
-
-}
-
-func parse(json: Data) {
+func parse(json: Data) -> Tenor {
     
     
     let decoder = JSONDecoder()
+    
+    if let tenor = try? decoder.decode(Tenor.self, from: json) {
 
-    if let jsonPetitions = try? decoder.decode(Tenor.self, from: json) {
-        Results = jsonPetitions.results
+        return tenor
     }
     
-    //print(results[0].media[0]["mp4"]!.url)
+    return Tenor(results: [], next: "")
+    
 }

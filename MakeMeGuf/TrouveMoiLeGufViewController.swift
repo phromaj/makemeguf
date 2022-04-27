@@ -14,7 +14,10 @@ class TrouveMoiLeGufViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Trouve moi l'guf"
-
+        
+        requestData(searchTerm: "") { (Tenor) in
+            
+        }
     }
     
 
