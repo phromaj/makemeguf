@@ -8,11 +8,17 @@
 
 import UIKit
 
+
 class FaisMoiLeGufViewController: UIViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        requestData(searchTerm: "angry")
+        
+        
         self.title = "Fais moi l'guf"
         
     }
