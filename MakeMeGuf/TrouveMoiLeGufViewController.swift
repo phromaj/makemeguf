@@ -10,15 +10,12 @@ import UIKit
 
 class TrouveMoiLeGufViewController: UIViewController {
 
+    let searchGuf = ["This is fine", "Wat", "One Does Not Simply Walk Into Mordor","Shut Up And Take My Money!", "Ah Shit, Here We Go Again"]
+    
+    @IBOutlet weak var randomLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = "Trouve moi l'guf"
-        
-        requestData(searchTerm: "") { (Tenor) in
-            
-        }
     }
-    
 
 }

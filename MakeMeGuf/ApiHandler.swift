@@ -10,9 +10,7 @@ import Foundation
 
 let apikey = "I28HR6RDU71N"
 
-/**
- Execute web request to retrieve the top GIFs returned(in batches of 8) for the given search term.
- */
+
 func requestData(searchTerm: String, completion: @escaping (Tenor) -> Void)
 {
     // Define the results upper limit
@@ -35,7 +33,6 @@ func requestData(searchTerm: String, completion: @escaping (Tenor) -> Void)
     let task = URLSession.shared.dataTask(with: searchRequest, completionHandler:  { (data, response, error) in
         do {
             if (try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]) != nil {
-                // Push the results to our callback
                 
                 let tenor =  parse(json: data!)
                 
@@ -46,14 +43,8 @@ func requestData(searchTerm: String, completion: @escaping (Tenor) -> Void)
         }
     })
     task.resume()
-    
-    // make initial search request for the first 8 items
-    
-    
-    
-    
-    // Data will be loaded by each request's callback
 }
+
 
 func parse(json: Data) -> Tenor {
     
