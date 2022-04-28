@@ -13,20 +13,18 @@ let apikey = "I28HR6RDU71N"
 
 func requestData(searchTerm: String, completion: @escaping (Tenor) -> Void)
 {
-    // Define the results upper limit
-    let limit = 8
     
     let searchRequest: URLRequest
     
     if searchTerm != "random"{
-        searchRequest = URLRequest(url: URL(string: String(format: "https://g.tenor.com/v1/search?q=%@&key=%@&limit=%d",
+        searchRequest = URLRequest(url: URL(string: String(format: "https://g.tenor.com/v1/search?q=%@&key=%@&limit=%d&media_filter=mp4",
                                                            searchTerm,
                                                            apikey,
-                                                           limit))!)
+                                                           50))!)
     } else {
-        searchRequest = URLRequest(url: URL(string: String(format: "https://g.tenor.com/v1/random?key=%@&limit=%d",
+        searchRequest = URLRequest(url: URL(string: String(format: "https://g.tenor.com/v1/random?key=%@&limit=%d&media_filter=mp4",
                                                            apikey,
-                                                           limit))!)
+                                                           8))!)
     }
     
     // Make the async request and pass the resulting json object to the callback
