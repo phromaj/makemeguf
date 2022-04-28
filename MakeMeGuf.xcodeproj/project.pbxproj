@@ -20,6 +20,7 @@
 		BFCCB80D281A7F4900CBC83B /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCCB80C281A7F4900CBC83B /* CollectionViewController.swift */; };
 		BFCCB80F281A7F6F00CBC83B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCCB80E281A7F6F00CBC83B /* CollectionViewCell.swift */; };
 		BFCCB811281A81D200CBC83B /* NotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCCB810281A81D200CBC83B /* NotationViewController.swift */; };
+		BFCCB815281AC62000CBC83B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCCB814281AC62000CBC83B /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		BFCCB80C281A7F4900CBC83B /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		BFCCB80E281A7F6F00CBC83B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		BFCCB810281A81D200CBC83B /* NotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotationViewController.swift; sourceTree = "<group>"; };
+		BFCCB814281AC62000CBC83B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		84BECAA92818295300581422 = {
 			isa = PBXGroup;
 			children = (
+				BFCCB814281AC62000CBC83B /* ResultViewController.swift */,
 				84BECAB42818295300581422 /* MakeMeGuf */,
 				84BECAB32818295300581422 /* Products */,
 			);
@@ -169,6 +172,7 @@
 				84BECACE2819382200581422 /* Tenor.swift in Sources */,
 				BFCCB80928183F8A00CBC83B /* FaisMoiLeGufViewController.swift in Sources */,
 				84BECAB82818295300581422 /* SceneDelegate.swift in Sources */,
+				BFCCB815281AC62000CBC83B /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
