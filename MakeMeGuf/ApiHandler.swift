@@ -7,11 +7,12 @@
 //
 
 import Foundation
-
+typealias CompletionHandler = (_ tenor: Tenor) -> Void
 let apikey = "I28HR6RDU71N"
 
 
-func requestData(searchTerm: String, completion: @escaping (Tenor) -> Void)
+func requestData(searchTerm: String, completion: @escaping CompletionHandler)
+//func requestData(searchTerm: String, completion: @escaping (Tenor) -> Void)
 {
     
     let searchRequest: URLRequest

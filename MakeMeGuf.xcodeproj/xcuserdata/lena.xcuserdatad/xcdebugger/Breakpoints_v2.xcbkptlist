@@ -14,8 +14,8 @@
             filePath = "MakeMeGuf/ApiHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "requestData(searchTerm:completion:)"
             landmarkType = "9">
          </BreakpointContent>

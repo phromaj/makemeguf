@@ -22,9 +22,9 @@ class FaisMoiLeGufViewController: UIViewController {
         
         self.title = "Fais moi l'guf"
         
-        requestData(searchTerm: "random") { [self] (Tenor) in
+        requestData(searchTerm: "random") { [self] tenor in
             
-            self.urlRandom = Tenor.results.randomElement()!.media[0]["mp4"]!.url
+            self.urlRandom = tenor.results.randomElement()!.media[0]["mp4"]!.url
             
             DispatchQueue.main.async {
                 self.playVideo(url: self.urlRandom)

@@ -7,38 +7,34 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class CollectionViewController: UICollectionViewController {
     
-    let dataSouce: [String] = ["USA", "Bresil", "France", "Mexique", "Allemagne", "Autriche", "Pologne"]
-
+    var tabUrls = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSouce.count
+        return tabUrls.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         var cell = UICollectionViewCell()
         
-        if let countryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionViewCell {
+        if let gifCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionViewCell {
             
-            countryCell.configure(with: dataSouce[indexPath.row])
-            
-            cell = countryCell
-            
+            gifCell.configure(with: tabUrls[indexPath.row])
+            cell = gifCell
         }
-    
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-    
-        print("Selected country : " + dataSouce[indexPath.row]) 
-        
+        print("Selected gif : " + tabUrls[indexPath.row])
     }
-
 }

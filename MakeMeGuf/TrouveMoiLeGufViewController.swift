@@ -9,31 +9,57 @@
 import UIKit
 
 class TrouveMoiLeGufViewController: UIViewController {
-
+    
     @IBOutlet weak var randomLabel: UILabel!
     @IBOutlet weak var searchInput: UITextField!
+    var tabUrls = [String]()
     
-    @IBAction func searchAction(_ sender: Any) {
-        print(searchInput.text!)
-        requestData(searchTerm: searchInput.text!) { (Tenor) in
-            for result in Tenor.results {
-                print(result.media[0]["mp4"]!.url)
-            }
-        }
-    }
+    let serialDispatchQueue = DispatchQueue(label: "serial-dispatch-queue")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.randomLabel.text = searchGuf.randomElement()
     }
-
+    
     @IBAction func searchButton(_ sender: Any) {
         
+        if self.searchInput.text!.isEmpty {
+            showToast(message: "Entre un mot espece de guf !", seconds: 1.0)
+            self.tabUrls = []
+        } else {
+            self.serialDispatchQueue.async {
+                requestData(searchTerm: self.searchInput.text!) { tenor in
+                    let count = 1...10
+                    self.tabUrls = []
+                    for number in count {
+                        self.tabUrls.append(tenor.results[number].media[0]["mp4"]!.url)
+                    }
+                    DispatchQueue.main.async {
+                        self.navigateToGif()
+                    }
+                }
+            }
+        }
+    }
+    
+    func navigateToGif(){
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "collection") as? CollectionViewController {
-            
+            vc.tabUrls = self.tabUrls
             self.present(vc, animated: true, completion: nil)
         }
-        
+    }
+}
+
+extension UIViewController{
+    func showToast(message : String, seconds: Double){
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.view.backgroundColor = .black
+        alert.view.alpha = 0.5
+        alert.view.layer.cornerRadius = 15
+        self.present(alert, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
+            alert.dismiss(animated: true)
+        }
     }
 }
