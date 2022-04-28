@@ -28,4 +28,12 @@ class TrouveMoiLeGufViewController: UIViewController {
         self.randomLabel.text = searchGuf.randomElement()
     }
 
+    @IBAction func searchButton(_ sender: Any) {
+        
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "collection") as? CollectionViewController {
+            
+            self.present(vc, animated: true, completion: nil)
+        }
+        
+    }
 }
