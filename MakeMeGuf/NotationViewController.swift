@@ -7,13 +7,50 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class NotationViewController: UIViewController {
-
+        
+    @IBOutlet weak var gifImageView: UIImageView!
+    @IBOutlet weak var phrasePlayerLabel: UILabel!
+    
+    var text: String = ""
+    var url: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        phrasePlayerLabel.text = "\"" + text + "\""
+        
+        DispatchQueue.main.async { [self] in
+            self.playVideo(url: url)
+        }
+    }
+    
+    func playVideo(url: String){
+        // Create AVPlayer object
+        let path = URL(string: url)!
+        let asset = AVAsset(url: path)
+        let playerItem = AVPlayerItem(asset: asset)
+        let player = AVPlayer(playerItem: playerItem)
+        
+        // Create AVPlayerLayer object
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = self.gifImageView.bounds //bounds of the view in which AVPlayer should be displayed
+        playerLayer.videoGravity = .resizeAspect
+        
+        // Add playerLayer to view's layer
+        self.gifImageView.layer.addSublayer(playerLayer)
+        
+        // Play Video
+        player.play()
+        
+        // Loopinp
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { [weak self] _ in
+            player.seek(to: CMTime.zero)
+            player.play()
+        }
     }
 
 }

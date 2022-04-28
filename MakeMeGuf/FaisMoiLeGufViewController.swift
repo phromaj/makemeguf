@@ -12,7 +12,7 @@ import AVFoundation
 
 
 class FaisMoiLeGufViewController: UIViewController {
-    
+
     @IBOutlet weak var gifImageView: UIImageView!
     @IBOutlet weak var responseTextField: UITextField!
     var urlRandom = ""
@@ -87,11 +87,11 @@ class FaisMoiLeGufViewController: UIViewController {
         
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "notation") as? NotationViewController {
             
-            self.navigationController?.pushViewController(vc, animated: true)
-            
+            if responseTextField.text != "" {
+                vc.text = responseTextField.text!
+                vc.url = urlRandom
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
-        
     }
-    
-    
 }
