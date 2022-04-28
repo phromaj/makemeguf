@@ -14,6 +14,7 @@ import AVFoundation
 class FaisMoiLeGufViewController: UIViewController {
     
     @IBOutlet weak var gifImageView: UIImageView!
+    @IBOutlet weak var responseTextField: UITextField!
     var urlRandom = ""
     
     override func viewDidLoad() {
@@ -79,6 +80,11 @@ class FaisMoiLeGufViewController: UIViewController {
         present(controller, animated: true) {
             player2.play()
         }
+    }
+    
+    
+    @IBAction func jeGufCaButton(_ sender: Any) {
+        
     }
     
     
