@@ -10,4 +10,9 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var countryNamelLabel: UILabel!
+    
+    func configure(with countryName: String) {
+        countryNamelLabel.text = countryName
+    }
 }
