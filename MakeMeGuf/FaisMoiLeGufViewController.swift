@@ -85,6 +85,12 @@ class FaisMoiLeGufViewController: UIViewController {
     
     @IBAction func jeGufCaButton(_ sender: Any) {
         
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "notation") as? NotationViewController {
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        
     }
     
     
