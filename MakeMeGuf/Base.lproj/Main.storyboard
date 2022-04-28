@@ -119,6 +119,21 @@
             </objects>
             <point key="canvasLocation" x="1830.8411214953269" y="123.75809935205184"/>
         </scene>
+        <!--Notation View Controller-->
+        <scene sceneID="EmI-xI-Kp1">
+            <objects>
+                <viewController id="7sp-4c-r6J" customClass="NotationViewController" customModule="MakeMeGuf" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rkS-ii-e94">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Va9-eR-eZh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="07Z-qN-agt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1844" y="771"/>
+        </scene>
         <!--Trouve Moi Le Guf View Controller-->
         <scene sceneID="G3T-pg-HFb">
             <objects>
@@ -174,7 +189,7 @@
         <!--Collection View Controller-->
         <scene sceneID="fsM-Sb-FbK">
             <objects>
-                <collectionViewController storyboardIdentifier="collection" id="Edl-8a-9dx" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="collection" id="Edl-8a-9dx" customClass="CollectionViewController" customModule="MakeMeGuf" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="zvm-zk-ob5">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
