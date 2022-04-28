@@ -17,8 +17,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="51l-yb-QtY">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guf" translatesAutoresizingMaskIntoConstraints="NO" id="TZh-Y1-4qR">
+                                <rect key="frame" x="0.0" y="88" width="294" height="235"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZ2-rc-Hjp">
+                                <rect key="frame" x="146" y="395" width="222" height="47"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Fais moi l'guf" buttonSize="large">
+                                    <color key="baseBackgroundColor" red="0.56470588235294117" green="0.18431372549019609" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="faisMoiLeGufButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Jt-z3-CCb"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYT-Fa-ylz">
-                                <rect key="frame" x="100" y="730" width="228" height="47"/>
+                                <rect key="frame" x="60" y="532" width="234" height="47"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Trouve moi l'guf" buttonSize="large">
                                     <color key="baseBackgroundColor" red="0.015686274509803921" green="0.8901960784313725" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -28,35 +45,20 @@
                                     <action selector="trouveMoiLeGufButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="grV-hD-jZb"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guf" translatesAutoresizingMaskIntoConstraints="NO" id="TZh-Y1-4qR">
-                                <rect key="frame" x="14" y="290" width="400" height="400"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="BMS-VK-3dc"/>
-                                    <constraint firstAttribute="width" constant="400" id="CAb-uT-xr9"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZ2-rc-Hjp">
-                                <rect key="frame" x="100" y="203" width="228" height="47"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Fais moi l'guf" buttonSize="large">
-                                    <color key="baseBackgroundColor" red="0.56470588235294117" green="0.18431372549019609" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="faisMoiLeGufButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Jt-z3-CCb"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.98039215686274506" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CYT-Fa-ylz" secondAttribute="bottom" constant="115" id="AUS-UK-xPn"/>
-                            <constraint firstItem="AZ2-rc-Hjp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="ES0-ea-yGm"/>
-                            <constraint firstItem="TZh-Y1-4qR" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="N1s-NU-vRh"/>
-                            <constraint firstItem="TZh-Y1-4qR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ph1-73-nXM"/>
-                            <constraint firstItem="AZ2-rc-Hjp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="cqb-Dq-ygt"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CYT-Fa-ylz" secondAttribute="trailing" constant="100" id="dOk-x0-vRI"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AZ2-rc-Hjp" secondAttribute="trailing" constant="100" id="fUk-k4-Zs6"/>
-                            <constraint firstItem="CYT-Fa-ylz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="iL3-AK-gZk"/>
+                            <constraint firstItem="AZ2-rc-Hjp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="146" id="2ol-gw-L1e"/>
+                            <constraint firstItem="CYT-Fa-ylz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="9D2-wj-5ew"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="TZh-Y1-4qR" secondAttribute="top" id="MPe-7Y-chx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CYT-Fa-ylz" secondAttribute="trailing" constant="134" id="TRv-hP-H8U"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TZh-Y1-4qR" secondAttribute="trailing" constant="134" id="WMT-Og-Sdc"/>
+                            <constraint firstItem="TZh-Y1-4qR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ytz-Ll-fvR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AZ2-rc-Hjp" secondAttribute="trailing" constant="60" id="YxE-RU-mTe"/>
+                            <constraint firstItem="AZ2-rc-Hjp" firstAttribute="top" secondItem="TZh-Y1-4qR" secondAttribute="bottom" constant="72" id="kfD-tW-eIF"/>
+                            <constraint firstItem="CYT-Fa-ylz" firstAttribute="top" secondItem="AZ2-rc-Hjp" secondAttribute="bottom" constant="90" id="lUb-Qj-Apq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TZh-Y1-4qR" secondAttribute="bottom" constant="569" id="yv1-Gx-zfk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Y5W-r8-CYl"/>
@@ -357,6 +359,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="1587" height="2245"/>
         <image name="guf" width="1080" height="1080"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
