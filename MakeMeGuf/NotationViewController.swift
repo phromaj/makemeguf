@@ -14,6 +14,7 @@ class NotationViewController: UIViewController {
         
     @IBOutlet weak var gifImageView: UIImageView!
     @IBOutlet weak var phrasePlayerLabel: UILabel!
+    @IBOutlet weak var scoreField: UITextField!
     
     var text: String = ""
     var url: String = ""
@@ -52,5 +53,27 @@ class NotationViewController: UIViewController {
             player.play()
         }
     }
-
+    
+    
+    @IBAction func toResultButton(_ sender: Any) {
+        
+        print(self.scoreField.text!)
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "result") as? ResultViewController {
+            
+            if self.scoreField.text != "" {
+                         vc.result = self.scoreField.text!
+                                self.present(vc, animated: true, completion: nil)
+                   }
+        
+         }
+    }
+    
+    
+    @IBAction func score(_ sender: UITextField) {
+        
+        if !(sender.text!.isEmpty) && Int(sender.text!)! > 10  {
+                  sender.text! = "10"
+        }
+        
+    }
 }

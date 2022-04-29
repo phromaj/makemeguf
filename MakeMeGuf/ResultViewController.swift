@@ -9,10 +9,34 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var critiqueLabel: UILabel!
+    
+    var result: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.setCritiqueText(critique: result)
+        
+        self.scoreLabel.text! = result + "/10"
 
     }
+    
+    private func setCritiqueText(critique: String){
+        let score: Int = Int(critique)!
+        
+        if score < 3 {
+            self.critiqueLabel.text! = "Pitoyable"
+        } else if score < 7 {
+            self.critiqueLabel.text! = "Nul"
+        } else {
+            self.critiqueLabel.text! = "ok boomer"
+        }
+    }
+    
+    @IBAction func backToMenu(_ sender: Any) {
+    }
+    
 }
