@@ -13,6 +13,7 @@ class TrouveMoiLeGufViewController: UIViewController {
     @IBOutlet weak var randomLabel: UILabel!
     @IBOutlet weak var searchInput: UITextField!
     var tabUrls = [String]()
+    var choiceUrl = ""
     
     let serialDispatchQueue = DispatchQueue(label: "serial-dispatch-queue")
     
@@ -46,7 +47,9 @@ class TrouveMoiLeGufViewController: UIViewController {
     func navigateToGif(){
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "collection") as? CollectionViewController {
             vc.tabUrls = self.tabUrls
-            self.present(vc, animated: true, completion: nil)
+            vc.textRandom = randomLabel.text!
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }
     }
 }

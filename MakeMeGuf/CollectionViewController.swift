@@ -13,6 +13,8 @@ import AVFoundation
 class CollectionViewController: UICollectionViewController {
     
     var tabUrls = [String]()
+    var choiceUrl = ""
+    var textRandom = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,5 +38,15 @@ class CollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Selected gif : " + tabUrls[indexPath.row])
+        self.choiceUrl = tabUrls[indexPath.row]
+        
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "notation") as? NotationViewController {
+            
+            vc.url = choiceUrl
+            vc.text = self.textRandom
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        
     }
 }
