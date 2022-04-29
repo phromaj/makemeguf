@@ -24,7 +24,7 @@ class NotationViewController: UIViewController {
         phrasePlayerLabel.text = "\"" + text + "\""
         
         DispatchQueue.main.async { [self] in
-            self.playVideo(url: url)
+            self.playVideo(url: self.url)
         }
     }
     
