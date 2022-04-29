@@ -11,9 +11,7 @@ typealias CompletionHandler = (_ tenor: Tenor) -> Void
 let apikey = "I28HR6RDU71N"
 
 
-func requestData(searchTerm: String, completion: @escaping CompletionHandler)
-//func requestData(searchTerm: String, completion: @escaping (Tenor) -> Void)
-{
+func requestData(searchTerm: String, completion: @escaping CompletionHandler) {
     
     let searchRequest: URLRequest
     
@@ -32,9 +30,7 @@ func requestData(searchTerm: String, completion: @escaping CompletionHandler)
     let task = URLSession.shared.dataTask(with: searchRequest, completionHandler:  { (data, response, error) in
         do {
             if (try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]) != nil {
-                
                 let tenor =  parse(json: data!)
-                
                 completion(tenor)
             }
         } catch let error as NSError {
@@ -46,17 +42,12 @@ func requestData(searchTerm: String, completion: @escaping CompletionHandler)
 
 
 func parse(json: Data) -> Tenor {
-    
-    
     let decoder = JSONDecoder()
-    
     if let tenor = try? decoder.decode(Tenor.self, from: json) {
-
         return tenor
     }
-    
     return Tenor(results: [], next: "")
-    
+
 }
 
 

@@ -39,7 +39,7 @@ class CollectionViewCell: UICollectionViewCell {
         player.play()
         
         // Loopinp
-        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
             player.seek(to: CMTime.zero)
             player.play()
         }

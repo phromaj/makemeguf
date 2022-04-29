@@ -17,11 +17,9 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.setCritiqueText(critique: result)
-        
         self.scoreLabel.text! = result + "/10"
-
+        
     }
     
     private func setCritiqueText(critique: String){
@@ -37,7 +35,7 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func backToMenu(_ sender: Any) {
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "main") as? ViewController {
+        if UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "main") is ViewController {
             self.navigationController?.popToRootViewController(animated: true)
         }
     }

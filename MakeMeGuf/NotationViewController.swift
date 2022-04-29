@@ -21,9 +21,8 @@ class NotationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Note"
         phrasePlayerLabel.text = "\"" + text + "\""
-        
         DispatchQueue.main.async { [self] in
             self.playVideo(url: self.url)
         }
@@ -48,7 +47,7 @@ class NotationViewController: UIViewController {
         player.play()
         
         // Loopinp
-        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
             player.seek(to: CMTime.zero)
             player.play()
         }
@@ -56,23 +55,19 @@ class NotationViewController: UIViewController {
     
     
     @IBAction func toResultButton(_ sender: Any) {
-        
         print(self.scoreField.text!)
+        
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "result") as? ResultViewController {
-            
             if self.scoreField.text != "" {
                 vc.result = self.scoreField.text!
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-            
         }
     }
     
     @IBAction func score(_ sender: UITextField) {
-        
         if !(sender.text!.isEmpty) && Int(sender.text!)! > 10  {
             sender.text! = "10"
         }
-        
     }
 }

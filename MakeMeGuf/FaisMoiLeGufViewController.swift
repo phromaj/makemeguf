@@ -10,22 +10,18 @@ import UIKit
 import AVKit
 import AVFoundation
 
-
 class FaisMoiLeGufViewController: UIViewController {
-
+    
     @IBOutlet weak var gifImageView: UIImageView!
     @IBOutlet weak var responseTextField: UITextField!
     var urlRandom = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "Fais moi l'guf"
         
         requestData(searchTerm: "random") { [self] tenor in
-            
             self.urlRandom = tenor.results.randomElement()!.media[0]["mp4"]!.url
-            
             DispatchQueue.main.async {
                 self.playVideo(url: self.urlRandom)
             }
@@ -38,7 +34,7 @@ class FaisMoiLeGufViewController: UIViewController {
     }
     
     // Function linked to the tap gesture that activates the full screen
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         fullscreenMode(url: self.urlRandom)
     }
     
@@ -61,7 +57,7 @@ class FaisMoiLeGufViewController: UIViewController {
         player.play()
         
         // Loopinp
-        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
             player.seek(to: CMTime.zero)
             player.play()
         }
@@ -82,15 +78,14 @@ class FaisMoiLeGufViewController: UIViewController {
         }
     }
     
-    
     @IBAction func jeGufCaButton(_ sender: Any) {
-        
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "notation") as? NotationViewController {
-            
             if responseTextField.text != "" {
                 vc.text = responseTextField.text!
                 vc.url = urlRandom
                 self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                showToast(message: "Entre un mot espece de guf !", seconds: 1.0)
             }
         }
     }
