@@ -11,7 +11,7 @@ import AVKit
 import AVFoundation
 
 class NotationViewController: UIViewController {
-        
+    
     @IBOutlet weak var gifImageView: UIImageView!
     @IBOutlet weak var phrasePlayerLabel: UILabel!
     @IBOutlet weak var scoreField: UITextField!
@@ -61,18 +61,17 @@ class NotationViewController: UIViewController {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "result") as? ResultViewController {
             
             if self.scoreField.text != "" {
-                         vc.result = self.scoreField.text!
-                                self.present(vc, animated: true, completion: nil)
-                   }
-        
-         }
+                vc.result = self.scoreField.text!
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+        }
     }
-    
     
     @IBAction func score(_ sender: UITextField) {
         
         if !(sender.text!.isEmpty) && Int(sender.text!)! > 10  {
-                  sender.text! = "10"
+            sender.text! = "10"
         }
         
     }

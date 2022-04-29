@@ -37,6 +37,10 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func backToMenu(_ sender: Any) {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "main") as? ViewController {
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }
